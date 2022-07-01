@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="addNew.html">
                             <!-- input  -->
                             <div class="form-outline mb-4">
                                 <input type="text" id="name" name="name" class="form-control" placeholder="name"
@@ -53,7 +53,7 @@
 
                             <div class="row px-5 m-5">
                                 <!-- submit  -->
-                                <button class="btn btn-success" type="submit">Login</button>
+                                <button class="btn btn-success btn-alert" type="submit">Login</button>
                             </div>
 
 
@@ -94,40 +94,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -143,6 +110,29 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- sweetalert  -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <script>
+        $(".btn-alert").on('click', function(e){
+            e.preventDefault();
+            var form = $(this).parents('form');
+
+            swal({
+                title:"Sign in?",
+                text:"Are u sure to sign in?",
+                icon:"warning",
+
+                dangerMode:true,
+                buttons:true
+            }).then((willDelete)=>{
+                if(willDelete){
+                    form.submit();
+                } else {
+                    return;
+                }
+            });
+        })
+    </script>
 </body>
 
 </html>
